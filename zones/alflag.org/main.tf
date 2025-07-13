@@ -63,10 +63,6 @@ resource "cloudflare_record" "cname_no_proxy" {
       name    = "alflag-prod-20240818._domainkey"
       content = "alflag-prod-20240818.alflag.org.dkim.kix1.oracleemaildelivery.com"
     }
-    www = {
-      name    = "www"
-      content = "ghs.googlehosted.com"
-    }
   }
 
   zone_id = data.cloudflare_zone.main.id
