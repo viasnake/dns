@@ -40,6 +40,10 @@ resource "cloudflare_dns_record" "txt" {
       name    = "@"
       content = "google-site-verification=sz8B-3deGXTfQdseWHSPXF8NNyHGOAt4VhTfvC0EHqk"
     }
+    dmarc = {
+      name    = "_dmarc"
+      content = "v=DMARC1; p=none; rua=mailto:9ea9b323aff54a4ba884e5a9f7027622@dmarc-reports.cloudflare.net"
+    }
   }
 
   zone_id = data.cloudflare_zone.main.id
