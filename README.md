@@ -20,6 +20,7 @@ No providers.
 |------|--------|---------|
 | <a name="module_alflag"></a> [alflag](#module\_alflag) | ./zones/alflag.org | n/a |
 | <a name="module_mcplay"></a> [mcplay](#module\_mcplay) | ./zones/mcplay.biz | n/a |
+| <a name="module_y1v"></a> [y1v](#module\_y1v) | ./zones/y1v.net | n/a |
 
 ## Resources
 

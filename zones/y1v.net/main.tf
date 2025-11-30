@@ -1,0 +1,50 @@
+data "cloudflare_zone" "main" {
+  name = var.zone
+}
+
+resource "cloudflare_record" "mx" {
+  for_each = {
+    aspmx0 = {
+      content  = "aspmx.l.google.com"
+      priority = 1
+    }
+    aspmx1 = {
+      content  = "alt1.aspmx.l.google.com"
+      priority = 5
+    }
+    aspmx2 = {
+      content  = "alt2.aspmx.l.google.com"
+      priority = 5
+    }
+    aspmx3 = {
+      content  = "alt3.aspmx.l.google.com"
+      priority = 10
+    }
+    aspmx4 = {
+      content  = "alt4.aspmx.l.google.com"
+      priority = 10
+    }
+  }
+
+  zone_id  = data.cloudflare_zone.main.id
+  name     = "@"
+  content  = each.value.content
+  priority = each.value.priority
+  type     = "MX"
+  ttl      = "60"
+}
+
+resource "cloudflare_record" "txt" {
+  for_each = {
+    google_site_verification = {
+      name    = "@"
+      content = "google-site-verification=sz8B-3deGXTfQdseWHSPXF8NNyHGOAt4VhTfvC0EHqk"
+    }
+  }
+
+  zone_id = data.cloudflare_zone.main.id
+  name    = each.value.name
+  content = each.value.content
+  type    = "TXT"
+  ttl     = "60"
+}
