@@ -1,8 +1,8 @@
 data "cloudflare_zone" "main" {
-  name = var.zone
+  zone_id = var.zone_id
 }
 
-resource "cloudflare_record" "mx" {
+resource "cloudflare_dns_record" "mx" {
   for_each = {
     aspmx0 = {
       content  = "aspmx.l.google.com"
@@ -34,7 +34,7 @@ resource "cloudflare_record" "mx" {
   ttl      = "60"
 }
 
-resource "cloudflare_record" "txt" {
+resource "cloudflare_dns_record" "txt" {
   for_each = {
     google_site_verification = {
       name    = "@"

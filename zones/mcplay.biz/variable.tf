@@ -1,7 +1,13 @@
-variable "zone" {
-  description = "Cloudflare zone"
+# variable "zone" {
+#   description = "Cloudflare zone"
+#   type        = string
+#   default     = "mcplay.biz"
+# }
+
+variable "zone_id" {
+  description = "Cloudflare zone ID"
   type        = string
-  default     = "mcplay.biz"
+  default     = "fb1a2fe77f3e5bd4af467914f59a8743"
 }
 
 variable "tcpshield" {
