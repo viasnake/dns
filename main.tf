@@ -5,7 +5,3 @@ module "alflag" {
 module "mcplay" {
   source = "./zones/mcplay.biz"
 }
-
-module "vlouty" {
-  source = "./zones/vlouty.com"
-}
